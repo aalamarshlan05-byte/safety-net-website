@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>MM Safety Service | Admin Panel</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f3f6fa;
+color:#172b43;
+}
+
+/* LOGIN */
+
+.login{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:linear-gradient(135deg,#061a30,#0b5a91);
+}
+
+.login-box{
+width:100%;
+max-width:420px;
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.logo{
+text-align:center;
+font-size:27px;
+font-weight:800;
+color:#071b32;
+margin-bottom:8px;
+}
+
+.logo span{
+color:#d9ad55;
+}
+
+.subtitle{
+text-align:center;
+color:#718096;
+margin-bottom:28px;
+}
+
+label{
+display:block;
+font-weight:bold;
+font-size:14px;
+margin-bottom:7px;
+}
+
+input{
+width:100%;
+padding:14px;
+border:1px solid #d8e0e8;
+border-radius:9px;
+outline:none;
+margin-bottom:17px;
+font-size:15px;
+}
+
+input:focus{
+border-color:#1269a8;
+}
+
+.login-btn{
+width:100%;
+padding:14px;
+border:0;
+border-radius:9px;
+background:#071b32;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.login-btn:hover{
+background:#0b4d83;
+}
+
+#error{
+color:#d93025;
+text-align:center;
+font-size:14px;
+margin-top:15px;
+}
+
+/* ADMIN */
+
+.admin{
+display:none;
+}
+
+.topbar{
+height:70px;
+background:#061a30;
+color:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 5%;
+}
+
+.brand{
+font-size:21px;
+font-weight:800;
+}
+
+.brand span{
+color:#d9ad55;
+}
+
+.logout{
+background:#d9ad55;
+border:0;
+padding:10px 16px;
+border-radius:7px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:35px 20px;
+}
+
+.heading{
+margin-bottom:25px;
+}
+
+.heading h1{
+font-size:30px;
+margin-bottom:7px;
+}
+
+.heading p{
+color:#718096;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+margin-bottom:30px;
+}
+
+.stat{
+background:white;
+padding:22px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.stat small{
+color:#718096;
+}
+
+.stat strong{
+display:block;
+font-size:28px;
+margin-top:5px;
+color:#0b4d83;
+}
+
+/* REVIEWS */
+
+.review-list{
+display:grid;
+gap:18px;
+}
+
+.review{
+background:white;
+border-radius:16px;
+padding:22px;
+box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.review-head{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+margin-bottom:15px;
+}
+
+.customer{
+font-size:18px;
+font-weight:bold;
+}
+
+.stars{
+color:#d9ad55;
+font-size:20px;
+margin-top:4px;
+}
+
+.status{
+padding:6px 10px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+}
+
+.pending{
+background:#fff3cd;
+color:#856404;
+}
+
+.approved{
+background:#d4edda;
+color:#155724;
+}
+
+.rejected{
+background:#f8d7da;
+color:#721c24;
+}
+
+.review-text{
+color:#536273;
+line-height:1.7;
+margin-bottom:15px;
+}
+
+.photo{
+width:100%;
+max-width:400px;
+height:250px;
+border-radius:12px;
+overflow:hidden;
+background:#edf1f5;
+margin-bottom:18px;
+}
+
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.actions{
+display:flex;
+gap:9px;
+flex-wrap:wrap;
+}
+
+.actions button{
+border:0;
+padding:10px 15px;
+border-radius:7px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.approve{
+background:#159447;
+color:white;
+}
+
+.reject{
+background:#f0a500;
+color:white;
+}
+
+.delete{
+background:#d93025;
+color:white;
+}
+
+.view{
+background:#071b32;
+color:white;
+}
+
+/* EMPTY */
+
+.empty{
+background:white;
+padding:50px 20px;
+text-align:center;
+border-radius:16px;
+color:#718096;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.topbar{
+padding:0 18px;
+}
+
+.brand{
+font-size:17px;
+}
+
+.container{
+padding:25px 15px;
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+.heading h1{
+font-size:25px;
+}
+
+.review-head{
+align-items:flex-start;
+flex-direction:column;
+}
+
+.photo{
+height:220px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- LOGIN -->
+
+<section class="login" id="login">
+
+<div class="login-box">
+
+<div class="logo">
+MM <span>SAFETY</span>
+</div>
+
+<p class="subtitle">
+Administrator Login
+</p>
+
+<form onsubmit="login(event)">
+
+<label>Admin Username</label>
+
+<input
+type="text"
+id="username"
+placeholder="Enter username"
+required
+>
+
+<label>Admin Password</label>
+
+<input
+type="password"
+id="password"
+placeholder="Enter password"
+required
+>
+
+<button class="login-btn">
+LOGIN TO ADMIN PANEL
+</button>
+
+<p id="error"></p>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- ADMIN PANEL -->
+
+<section class="admin" id="admin">
+
+<header class="topbar">
+
+<div class="brand">
+MM <span>SAFETY SERVICE</span>
+</div>
+
+<button class="logout" onclick="logout()">
+Logout
+</button>
+
+</header>
+
+
+<main class="container">
+
+<div class="heading">
+
+<h1>Admin Dashboard</h1>
+
+<p>
+Manage customer reviews and uploaded work photos.
+</p>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+<small>Total Reviews</small>
+<strong id="total">0</strong>
+</div>
+
+<div class="stat">
+<small>Approved</small>
+<strong id="approvedCount">0</strong>
+</div>
+
+<div class="stat">
+<small>Pending</small>
+<strong id="pendingCount">0</strong>
+</div>
+
+<div class="stat">
+<small>Photos</small>
+<strong id="photoCount">0</strong>
+</div>
+
+</div>
+
+
+<div id="reviewList"></div>
+
+</main>
+
+</section>
+
+
+<script>
+
+/*
+========================================
+DEMO ADMIN LOGIN
+========================================
+
+Username:
+admin
+
+Password:
+MM@12345
+
+IMPORTANT:
+यह frontend demo login है।
+Production website के लिए secure backend
+authentication जरूरी है।
+*/
+
+
+const ADMIN_USER = "admin";
+const ADMIN_PASS = "MM@12345";
+
+
+/* LOGIN */
+
+function login(event){
+
+event.preventDefault();
+
+const username =
+document.getElementById("username").value;
+
+const password =
+document.getElementById("password").value;
+
+if(
+username === ADMIN_USER &&
+password === ADMIN_PASS
+){
+
+sessionStorage.setItem("mmAdmin","true");
+
+document.getElementById("login").style.display="none";
+
+document.getElementById("admin").style.display="block";
+
+loadReviews();
+
+}else{
+
+document.getElementById("error").innerText =
+"❌ Username या Password गलत है।";
+
+}
+
+}
+
+
+/* LOGOUT */
+
+function logout(){
+
+sessionStorage.removeItem("mmAdmin");
+
+location.reload();
+
+}
+
+
+/* CHECK LOGIN */
+
+if(sessionStorage.getItem("mmAdmin")==="true"){
+
+document.getElementById("login").style.display="none";
+
+document.getElementById("admin").style.display="block";
+
+}
+
+
+/* SAMPLE REVIEWS */
+
+let reviews = JSON.parse(
+localStorage.getItem("mmReviews") || "[]"
+);
+
+
+/* LOAD REVIEWS */
+
+function loadReviews(){
+
+const list =
+document.getElementById("reviewList");
+
+list.innerHTML="";
+
+document.getElementById("total").innerText =
+reviews.length;
+
+document.getElementById("approvedCount").innerText =
+reviews.filter(r=>r.status==="approved").length;
+
+document.getElementById("pendingCount").innerText =
+reviews.filter(r=>r.status==="pending").length;
+
+document.getElementById("photoCount").innerText =
+reviews.filter(r=>r.photo).length;
+
+
+if(reviews.length===0){
+
+list.innerHTML=`
+<div class="empty">
+<h2>No Customer Reviews Yet</h2>
+<p>
+जब customer review submit करेगा,
+वह यहाँ दिखाई देगा।
+</p>
+</div>
+`;
+
+return;
+
+}
+
+
+reviews.forEach((review,index)=>{
+
+const stars =
+"★".repeat(review.rating || 5) +
+"☆".repeat(5-(review.rating || 5));
+
+
+const photoHTML = review.photo
+?
+`
+<div class="photo">
+<img src="${review.photo}" alt="Customer Work Photo">
+</div>
+`
+:
+"";
+
+
+list.innerHTML += `
+
+<div class="review">
+
+<div class="review-head">
+
+<div>
+
+<div class="customer">
+${escapeHTML(review.name)}
+</div>
+
+<div class="stars">
+${stars}
+</div>
+
+</div>
+
+<div class="status ${review.status}">
+${review.status.toUpperCase()}
+</div>
+
+</div>
+
+
+<div class="review-text">
+${escapeHTML(review.text)}
+</div>
+
+${photoHTML}
+
+
+<div class="actions">
+
+<button
+class="approve"
+onclick="approveReview(${index})">
+✓ Approve
+</button>
+
+<button
+class="reject"
+onclick="rejectReview(${index})">
+✕ Reject
+</button>
+
+<button
+class="delete"
+onclick="deleteReview(${index})">
+🗑 Delete
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+/* APPROVE */
+
+function approveReview(index){
+
+reviews[index].status="approved";
+
+saveReviews();
+
+}
+
+
+/* REJECT */
+
+function rejectReview(index){
+
+reviews[index].status="rejected";
+
+saveReviews();
+
+}
+
+
+/* DELETE */
+
+function deleteReview(index){
+
+if(
+confirm("क्या आप यह review delete करना चाहते हैं?")
+){
+
+reviews.splice(index,1);
+
+saveReviews();
+
+}
+
+}
+
+
+/* SAVE */
+
+function saveReviews(){
+
+localStorage.setItem(
+"mmReviews",
+JSON.stringify(reviews)
+);
+
+loadReviews();
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(text){
+
+return String(text || "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>https://aalamarshlan05-byte.github.io/safety-net-website/admin.html
+</html>
