@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MM Safety Service | Best Safety Nets Supplier</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f8f9fa; color: #333; line-height: 1.6; }
+        
+        /* Header */
+        header { background: #004085; color: white; text-align: center; padding: 40px 15px; }
+        header h1 { font-size: 32px; margin-bottom: 10px; font-weight: bold; }
+        header p { font-size: 16px; opacity: 0.9; }
+
+        /* Action Buttons */
+        .btn-group { display: flex; justify-content: center; gap: 15px; margin: 20px 0; padding: 0 15px; }
+        .btn { flex: 1; max-width: 200px; text-align: center; padding: 12px 15px; border-radius: 25px; text-decoration: none; font-weight: bold; color: white; display: inline-block; font-size: 15px; }
+        .btn-call { background: #007bff; }
+        .btn-wa { background: #25D366; }
+
+        /* Container & Sections */
+        .container { padding: 20px 15px; max-width: 900px; margin: auto; }
+        .section-title { text-align: center; color: #004085; margin-bottom: 20px; font-size: 22px; margin-top: 15px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-top: 4px solid #004085; }
+        .card h3 { color: #004085; margin-bottom: 8px; font-size: 18px; }
+
+        /* Media Section */
+        .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-bottom: 25px; }
+        .media-card { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+        .media-card img, .media-card video { width: 100%; height: 250px; object-fit: cover; border-radius: 6px; }
+
+        /* Features */
+        .features { background: #e9ecef; padding: 20px; border-radius: 8px; margin-top: 25px; }
+        .features ul { list-style: none; }
+        .features li { margin-bottom: 10px; font-weight: 500; }
+        .features li::before { content: "✔ "; color: #28a745; font-weight: bold; }
+
+        /* Footer */
+        footer { text-align: center; padding: 20px; background: #343a40; color: white; font-size: 14px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <!-- Main Header -->
+    <header>
+        <h1>MM Safety Service</h1>
+        <p>Balcony, Kabootar aur Bacchon ki Suraksha ke liye sabse Bharosemand Safety Net Service</p>
+    </header>
+
+    <!-- Call / WhatsApp Buttons -->
+    <div class="btn-group">
+        <a href="tel:7209000233" class="btn btn-call">📞 Call Now</a>
+        <a href="https://wa.me/917209000233?text=Hi,%20I%20need%20MM%20Safety%20Service" class="btn btn-wa">💬 WhatsApp</a>
+    </div>
+
+    <div class="container">
+        
+        <!-- Photo & Video Gallery Section -->
+        <h2 class="section-title">Hamare Kam Ki Photos & Videos</h2>
+        <div class="media-grid">
+            <div class="media-card">
+                <img src="photo1.jpg" alt="MM Safety Service Installation">
+                <p style="margin-top: 8px; font-weight: 500;">Balcony Safety Net Fitting</p>
+            </div>
+            <div class="media-card">
+                <video controls>
+                    <source src="video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p style="margin-top: 8px; font-weight: 500;">Live Safety Net Testing</p>
+            </div>
+        </div>
+
+        <!-- Our Services -->
+        <h2 class="section-title">Hamari Main Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🐦 Pigeon Safety Nets</h3>
+                <p>Kabootaron aur Pakshiyon ki gandagi se apne ghar aur balcony ko saaf rakhein.</p>
+            </div>
+            <div class="card">
+                <h3>👶 Balcony Safety Nets</h3>
+                <p>Chote bacchon aur pets ki poori safety ke liye majboot safety nets.</p>
+            </div>
+            <div class="card">
+                <h3>🏏 Cricket & Sports Nets</h3>
+                <p>Ground, terrace aur practice ke liye high-quality sports net installation.</p>
+            </div>
+            <div class="card">
+                <h3>🏢 Construction Nets</h3>
+                <p>Building construction aur site safety ke liye heavy-duty safety nets.</p>
+            </div>
+        </div>
+
+        <!-- Why Choose Us -->
+        <div class="features">
+            <h2 class="section-title" style="margin-bottom: 15px;">Humein Kyun Chunein? (Why Choose Us)</h2>
+            <ul>
+                <li>100% High Quality (UV Stabilized Nets)</li>
+                <li>Sabse Kifayati aur Sasta Rate</li>
+                <li>Experienced aur Fast Installation Team</li>
+                <li>Free Site Visit aur Inspection Services</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contact & Footer -->
+    <footer>
+        <p><b>Contact MM Safety Service for Best Fitting & Quality Nets</b></p>
+        <p>📞 Phone: +91 7209000233</p>
+        <p style="margin-top: 10px; font-size: 12px;">© 2026 MM Safety Service. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html><head>
+  <meta name="google-site-verification" content="cozxFNGzWRbaK9RTALmiXoO8pxjZfvBxhnPfztQ64N4" />
+
+  <meta charset="UTF-8">
+  <title>Safety Net</title>
+  ...
+</head>
