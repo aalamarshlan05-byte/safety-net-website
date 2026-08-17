@@ -1,0 +1,163 @@
+<section id="reviews" style="padding:70px 20px;background:#f5f8fc;">
+  <div style="max-width:700px;margin:auto;background:white;padding:30px;border-radius:20px;box-shadow:0 10px 35px rgba(0,0,0,.12);">
+
+    <h2 style="text-align:center;color:#071b32;margin-bottom:10px;">
+      ⭐ Customer Review
+    </h2>
+
+    <p style="text-align:center;color:#6c7888;margin-bottom:25px;">
+      अपने काम का अनुभव और फोटो हमारे साथ शेयर करें
+    </p>
+
+    <form id="reviewForm">
+
+      <label>Customer Name</label>
+      <input
+        type="text"
+        id="customerName"
+        placeholder="अपना नाम लिखें"
+        required
+        style="width:100%;padding:14px;margin:8px 0 18px;border:1px solid #ddd;border-radius:8px;"
+      >
+
+      <label>Your Rating</label>
+
+      <div id="stars" style="font-size:35px;margin:8px 0 18px;">
+        <span onclick="rate(1)">☆</span>
+        <span onclick="rate(2)">☆</span>
+        <span onclick="rate(3)">☆</span>
+        <span onclick="rate(4)">☆</span>
+        <span onclick="rate(5)">☆</span>
+      </div>
+
+      <input type="hidden" id="rating" value="0">
+
+      <label>Your Review</label>
+
+      <textarea
+        id="reviewText"
+        placeholder="अपना review लिखें..."
+        required
+        rows="5"
+        style="width:100%;padding:14px;margin:8px 0 18px;border:1px solid #ddd;border-radius:8px;resize:vertical;"
+      ></textarea>
+
+      <label>Upload Work Photo</label>
+
+      <input
+        type="file"
+        id="customerPhoto"
+        accept="image/*"
+        style="width:100%;padding:14px;margin:8px 0 20px;border:1px solid #ddd;border-radius:8px;"
+      >
+
+      <div id="preview" style="margin-bottom:20px;"></div>
+
+      <button
+        type="submit"
+        style="width:100%;padding:15px;background:#071b32;color:white;border:0;border-radius:8px;font-size:16px;font-weight:bold;"
+      >
+        ⭐ Submit Review
+      </button>
+
+    </form>
+
+    <p id="message"
+       style="text-align:center;margin-top:18px;color:#168b45;font-weight:bold;">
+    </p>
+
+  </div>
+</section>
+
+<script>
+
+let selectedRating = 0;
+
+function rate(number){
+
+  selectedRating = number;
+
+  document.getElementById("rating").value = number;
+
+  const stars = document.querySelectorAll("#stars span");
+
+  stars.forEach((star,index)=>{
+    star.innerHTML = index < number ? "★" : "☆";
+    star.style.color = index < number ? "#d9ad55" : "#999";
+    star.style.cursor = "pointer";
+  });
+
+}
+
+document.getElementById("customerPhoto").addEventListener("change",function(){
+
+  const file = this.files[0];
+
+  if(!file) return;
+
+  const preview = document.getElementById("preview");
+
+  const reader = new FileReader();
+
+  reader.onload = function(e){
+
+    preview.innerHTML = `
+      <img
+        src="${e.target.result}"
+        style="width:100%;max-height:300px;object-fit:cover;border-radius:12px;"
+      >
+    `;
+
+  };
+
+  reader.readAsDataURL(file);
+
+});
+
+
+document.getElementById("reviewForm").addEventListener("submit",function(e){
+
+  e.preventDefault();
+
+  const name = document.getElementById("customerName").value;
+  const review = document.getElementById("reviewText").value;
+  const photo = document.getElementById("customerPhoto").files[0];
+
+  if(selectedRating === 0){
+
+    alert("कृपया Star Rating दें।");
+    return;
+
+  }
+
+  /*
+    अभी यह demo/local form है।
+    GitHub Pages पर बिना backend/database
+    review और photo permanently save नहीं होंगे।
+  */
+
+  const savedReview = {
+    name:name,
+    rating:selectedRating,
+    review:review,
+    photo:photo ? photo.name : "",
+    date:new Date().toLocaleDateString()
+  };
+
+  localStorage.setItem(
+    "customerReview",
+    JSON.stringify(savedReview)
+  );
+
+  document.getElementById("message").innerText =
+    "✅ आपका Review और Photo इस device पर save हो गया है। धन्यवाद!";
+
+  document.getElementById("reviewForm").reset();
+
+  document.getElementById("preview").innerHTML = "";
+
+  rate(0);
+
+});
+
+</script>
