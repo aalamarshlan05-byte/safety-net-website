@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety Net Customer Management</title>
+    <style>
+        * { box-sizing: border-box; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        body { background: #f4f7f6; padding: 15px; color: #333; }
+        .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h1, h2 { text-align: center; color: #2c3e50; margin-bottom: 15px; }
+        .dashboard { display: flex; justify-content: space-between; margin-bottom: 20px; background: #eef2f3; padding: 10px; border-radius: 6px; }
+        .dash-card { text-align: center; font-weight: bold; }
+        form { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 20px; }
+        input, select, button { padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; width: 100%; }
+        button { background: #27ae60; color: white; border: none; cursor: pointer; font-weight: bold; }
+        button:hover { background: #219150; }
+        .search-box { margin-bottom: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #2c3e50; color: white; }
+        .action-btn { padding: 4px 8px; margin: 2px; border: none; border-radius: 3px; cursor: pointer; color: white; font-size: 12px; }
+        .wa-btn { background: #25D366; }
+        .edit-btn { background: #f39c12; }
+        .del-btn { background: #e74c3c; }
+        @media (max-width: 600px) { table { display: block; overflow-x: auto; } }
+    </style>
+</head>
+<body>
 
+<div class="container">
+    <h1>Safety Net Records</h1>
+    
+    <div class="dashboard">
+        <div class="dash-card">Total: <span id="total-count">0</span></div>
+        <div class="dash-card">Completed: <span id="completed-count">0</span></div>
+        <div class="dash-card">Pending: <span id="pending-count">0</span></div>
+    </div>
+
+    <form id="customer-form">
+        <input type="hidden" id="edit-index">
+        <input type="text" id="name" placeholder="Customer Name" required>
+        <input type="tel" id="mobile" placeholder="Mobile Number" required>
+        <input type="text" id="address" placeholder="Address" required>
+        <input type="date" id="date" required>
+        <select id="status">
+            <option value="Pending">Pending</option>
+            <option value="Completed">Completed</option>
+        </select>
+        <button type="submit" id="save-btn">Add Customer</button>
+    </form>
+
+    <input type="text" id="search" class="search-box" placeholder="Search by Name or Mobile..." onkeyup="renderData()">
+
+    <h2>Customer List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Address</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="customer-list"></tbody>
+    </table>
+</div>
+
+<script>
+    let customers = JSON.parse(localStorage.getItem("safety_net_customers")) || [];
+
+    const form = document.getElementById("customer-form");
+    const nameInput = document.getElementById("name");
+    const mobileInput = document.getElementById("mobile");
+    const addressInput = document.getElementById("address");
+    const dateInput = document.getElementById("date");
+    const statusInput = document.getElementById("status");
+    const editIndexInput = document.getElementById("edit-index");
+    const saveBtn = document.getElementById("save-btn");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const index = editIndexInput.value;
+        const newCustomer = {
+            name: nameInput.value,
+            mobile: mobileInput.value,
+            address: addressInput.value,
+            date: dateInput.value,
+            status: statusInput.value
+        };
+
+        if (index === "") {
+            customers.push(newCustomer);
+        } else {
+            customers[index] = newCustomer;
+            editIndexInput.value = "";
+            saveBtn.innerText = "Add Customer";
+        }
+
+        saveData();
+        form.reset();
+        renderData();
+    });
+
+    function saveData() {
+        localStorage.setItem("safety_net_customers", JSON.stringify(customers));
+    }
+
+    function renderData() {
+        const list = document.getElementById("customer-list");
+        const searchVal = document.getElementById("search").value.toLowerCase();
+        list.innerHTML = "";
+
+        let completed = 0;
+        let pending = 0;
+
+        customers.forEach((c, i) => {
+            if (c.status === "Completed") completed++;
+            if (c.status === "Pending") pending++;
+
+            if (c.name.toLowerCase().includes(searchVal) || c.mobile.includes(searchVal)) {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${c.name}</td>
+                    <td>${c.mobile}</td>
+                    <td>${c.address}</td>
+                    <td>${c.date}</td>
+                    <td><b>${c.status}</b></td>
+                    <td>
+                        <button class="action-btn wa-btn" onclick="sendWA('${c.mobile}', '${c.name}')">WA</button>
+                        <button class="action-btn edit-btn" onclick="editCustomer(${i})">Edit</button>
+                        <button class="action-btn del-btn" onclick="deleteCustomer(${i})">Del</button>
+                    </td>
+                `;
+                list.appendChild(tr);
+            }
+        });
+
+        document.getElementById("total-count").innerText = customers.length;
+        document.getElementById("completed-count").innerText = completed;
+        document.getElementById("pending-count").innerText = pending;
+    }
+
+    function deleteCustomer(index) {
+        if (confirm("Are you sure you want to delete this record?")) {
+            customers.splice(index, 1);
+            saveData();
+            renderData();
+        }
+    }
+
+    function editCustomer(index) {
+        const c = customers[index];
+        nameInput.value = c.name;
+        mobileInput.value = c.mobile;
+        addressInput.value = c.address;
+        dateInput.value = c.date;
+        statusInput.value = c.status;
+        editIndexInput.value = index;
+        saveBtn.innerText = "Update Customer";
+    }
+
+    function sendWA(mobile, name) {
+        const msg = encodeURIComponent(`Hello ${name}, regarding your Safety Net service order.`);
+        window.open(`https://wa.me/91${mobile}?text=${msg}`, '_blank');
+    }
+
+    renderData();
+</script>
+
+</body>
+</html>
