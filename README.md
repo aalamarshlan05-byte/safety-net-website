@@ -115,4 +115,10 @@
     </footer>
 
 </body>
-</html>
+</html><head>
+  <meta name="google-site-verification" content="cozxFNGzWRbaK9RTALmiXoO8pxjZfvBxhnPfztQ64N4" />
+
+  <meta charset="UTF-8">
+  <title>Safety Net</title>
+  ...
+</head>
