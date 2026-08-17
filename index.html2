@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MM Safety Service | Invisible Grill & Safety Net</title>
+
+<meta name="description" content="MM Safety Service - Premium Invisible Grill, Balcony Safety Net, Pigeon Net, Pet Safety Net and Terrace Safety Solutions.">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<link rel="canonical"
+href="https://aalamarshlan05-byte.github.io/safety-net-website/">
+
+<meta name="google-site-verification"
+content="cozxFNGzWRbaK9RTALmiXoO8pxjZfvBxhnPfztQ64N4">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#172b43;
+  background:
+    radial-gradient(circle at 10% 10%,#dff7ff 0,transparent 28%),
+    radial-gradient(circle at 90% 20%,#eee2ff 0,transparent 30%),
+    radial-gradient(circle at 50% 90%,#fff0d2 0,transparent 30%),
+    #f5f8fc;
+}
+
+a{
+  text-decoration:none;
+}
+
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:999;
+  padding:15px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(4,22,43,.93);
+  backdrop-filter:blur(15px);
+}
+
+.logo{
+  color:white;
+  font-size:23px;
+  font-weight:900;
+}
+
+.logo span{
+  color:#ffd166;
+}
+
+.navlinks{
+  display:flex;
+  gap:25px;
+}
+
+.navlinks a{
+  color:white;
+  font-size:14px;
+  font-weight:700;
+}
+
+.navlinks a:hover{
+  color:#ffd166;
+}
+
+.navbtn{
+  background:linear-gradient(135deg,#ffd166,#ff9f1c);
+  color:#071a2d;
+  padding:11px 17px;
+  border-radius:30px;
+  font-weight:900;
+  font-size:13px;
+}
+
+.hero{
+  min-height:100vh;
+  padding:140px 7% 90px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(3,17,34,.97),rgba(3,27,55,.72),rgba(3,27,55,.20)),
+    url("images/hero.jpg") center/cover no-repeat;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:450px;
+  height:450px;
+  right:-150px;
+  top:15%;
+  border-radius:50%;
+  background:linear-gradient(135deg,#00c6ff,#7b2cff,#ff3cac);
+  filter:blur(100px);
+  opacity:.3;
+}
+
+.hero-content{
+  max-width:760px;
+  position:relative;
+  z-index:2;
+  color:white;
+}
+
+.pill{
+  display:inline-block;
+  padding:9px 17px;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:30px;
+  color:#ffd166;
+  background:rgba(255,255,255,.08);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-size:clamp(45px,7vw,80px);
+  line-height:1;
+  margin-bottom:22px;
+}
+
+.hero h1 span{
+  background:linear-gradient(90deg,#ffd166,#ff8a00,#ff3cac);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  color:#dce8f5;
+  font-size:18px;
+  line-height:1.8;
+  margin-bottom:30px;
+}
+
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  padding:15px 23px;
+  border-radius:9px;
+  font-weight:900;
+  display:inline-block;
+}
+
+.gold{
+  background:linear-gradient(135deg,#ffd166,#ff9f1c);
+  color:#071a2d;
+}
+
+.green{
+  background:#16a85b;
+  color:white;
+}
+
+.dark{
+  background:#071a2d;
+  color:white;
+}
+
+.stats{
+  max-width:1100px;
+  margin:-45px auto 0;
+  position:relative;
+  z-index:5;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:white;
+  border-radius:20px;
+  box-shadow:0 20px 55px rgba(0,0,0,.13);
+  overflow:hidden;
+}
+
+.stat{
+  text-align:center;
+  padding:27px 10px;
+  border-right:1px solid #e5ebf2;
+}
+
+.stat:last-child{
+  border:0;
+}
+
+.stat strong{
+  display:block;
+  font-size:27px;
+  color:#0876d1;
+}
+
+.stat small{
+  color:#718096;
+}
+
+.section{
+  padding:95px 6%;
+}
+
+.heading{
+  max-width:750px;
+  text-align:center;
+  margin:0 auto 45px;
+}
+
+.heading small{
+  color:#0876d1;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.heading h2{
+  font-size:45px;
+  margin:10px 0;
+  color:#071a31;
+}
+
+.heading p{
+  color:#718096;
+  line-height:1.7;
+}
+
+.services{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.card{
+  background:white;
+  border-radius:19px;
+  overflow:hidden;
+  box-shadow:0 10px 35px rgba(7,30,60,.09);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 20px 50px rgba(7,30,60,.17);
+}
+
+.cardimg{
+  height:240px;
+  position:relative;
+  background:#e9eef5;
+}
+
+.cardimg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.tag{
+  position:absolute;
+  left:13px;
+  top:13px;
+  background:rgba(5,22,43,.92);
+  color:#ffd166;
+  padding:7px 11px;
+  border-radius:20px;
+  font-size:10px;
+  font-weight:900;
+}
+
+.cardbody{
+  padding:20px;
+}
+
+.cardbody h3{
+  color:#071a31;
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.cardbody p{
+  color:#718096;
+  line-height:1.7;
+  font-size:14px;
+  min-height:70px;
+}
+
+.cardactions{
+  display:flex;
+  gap:8px;
+  margin-top:15px;
+}
+
+.cardactions a{
+  padding:10px 13px;
+  border-radius:7px;
+  font-size:12px;
+  font-weight:900;
+  color:white;
+}
+
+.feature{
+  background:
+    linear-gradient(135deg,#06152b,#07568e,#071a31);
+  color:white;
+  overflow:hidden;
+}
+
+.featurebox{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+  align-items:center;
+}
+
+.featureimg{
+  height:500px;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 25px 60px rgba(0,0,0,.3);
+}
+
+.featureimg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.featuretext h2{
+  font-size:48px;
+  margin:12px 0 18px;
+}
+
+.featuretext p{
+  color:#d0dce8;
+  line-height:1.8;
+}
+
+.points{
+  margin-top:24px;
+  display:grid;
+  gap:13px;
+}
+
+.point b{
+  color:#ffd166;
+  margin-right:8px;
+}
+
+.gallery{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  grid-auto-rows:220px;
+  gap:14px;
+}
+
+.gallery div{
+  overflow:hidden;
+  border-radius:17px;
+}
+
+.gallery .big{
+  grid-row:span 2;
+}
+
+.gallery img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.gallery img:hover{
+  transform:scale(1.06);
+}
+
+.reviewarea{
+  background:
+    radial-gradient(circle at 15% 20%,#dff7ff,transparent 28%),
+    radial-gradient(circle at 85% 80%,#eadfff,transparent 30%);
+}
+
+.reviewbox{
+  max-width:700px;
+  margin:auto;
+  padding:30px;
+  background:white;
+  border-radius:20px;
+  box-shadow:0 15px 45px rgba(0,0,0,.1);
+}
+
+.reviewbox label{
+  display:block;
+  font-weight:800;
+  margin:10px 0 7px;
+}
+
+.reviewbox input,
+.reviewbox textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #d8e1eb;
+  border-radius:8px;
+  font-family:inherit;
+}
+
+.stars{
+  font-size:34px;
+  color:#ffd166;
+  margin:5px 0 15px;
+  cursor:pointer;
+}
+
+.reviewbox button{
+  width:100%;
+  margin-top:15px;
+  padding:14px;
+  border:0;
+  border-radius:8px;
+  background:linear-gradient(135deg,#0876d1,#7b2cff);
+  color:white;
+  font-weight:900;
+  cursor:pointer;
+}
+
+#reviewMessage{
+  text-align:center;
+  margin-top:15px;
+  font-weight:bold;
+}
+
+.contact{
+  margin:0 6% 75px;
+  padding:65px 25px;
+  text-align:center;
+  border-radius:25px;
+  color:white;
+  background:
+    linear-gradient(135deg,rgba(5,25,50,.94),rgba(7,107,181,.85)),
+    url("images/balcony-safety-net.jpg") center/cover;
+}
+
+.contact h2{
+  font-size:43px;
+  margin-bottom:10px;
+}
+
+.contact p{
+  color:#dbe7f3;
+  margin-bottom:25px;
+}
+
+.details{
+  max-width:1000px;
+  margin:0 auto 40px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.detail{
+  background:white;
+  padding:23px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(0,0,0,.07);
+}
+
+.detail b{
+  display:block;
+  color:#071a31;
+  margin-bottom:7px;
+}
+
+.detail span{
+  color:#718096;
+  font-size:14px;
+}
+
+footer{
+  background:#041326;
+  color:#aebdcb;
+  padding:50px 6% 25px;
+}
+
+.footergrid{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:35px;
+}
+
+footer h3{
+  color:white;
+  margin-bottom:12px;
+}
+
+footer p{
+  font-size:14px;
+  line-height:1.8;
+}
+
+footer a{
+  color:#dce7f2;
+}
+
+.copyright{
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.1);
+  margin-top:30px;
+  padding-top:20px;
+  font-size:12px;
+}
+
+.floatwa{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#18ad60;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  z-index:999;
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+@media(max-width:900px){
+
+.navlinks{
+  display:none;
+}
+
+.stats{
+  grid-template-columns:repeat(2,1fr);
+  margin:20px;
+}
+
+.services{
+  grid-template-columns:repeat(2,1fr);
+}
+
+.featurebox{
+  grid-template-columns:1fr;
+}
+
+.gallery{
+  grid-template-columns:1fr 1fr;
+}
+
+.gallery .big{
+  grid-row:span 1;
+}
+
+.details{
+  grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+.nav{
+  padding:14px 17px;
+}
+
+.logo{
+  font-size:18px;
+}
+
+.hero{
+  padding:120px 20px 70px;
+}
+
+.hero h1{
+  font-size:47px;
+}
+
+.hero p{
+  font-size:15px;
+}
+
+.section{
+  padding:70px 18px;
+}
+
+.heading h2{
+  font-size:35px;
+}
+
+.services{
+  grid-template-columns:1fr;
+}
+
+.cardimg{
+  height:260px;
+}
+
+.featurebox{
+  gap:30px;
+}
+
+.featureimg{
+  height:350px;
+}
+
+.featuretext h2{
+  font-size:36px;
+}
+
+.gallery{
+  grid-template-columns:1fr;
+  grid-auto-rows:240px;
+}
+
+.contact{
+  margin:0 18px 55px;
+}
+
+.contact h2{
+  font-size:35px;
+}
+
+.footergrid{
+  grid-template-columns:1fr;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="nav">
+
+<a class="logo" href="#">
+MM <span>SAFETY</span>
+</a>
+
+<div class="navlinks">
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+</div>
+
+<a class="navbtn" href="tel:+917209000233">
+CALL NOW
+</a>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="pill">
+PREMIUM SAFETY SOLUTIONS
+</div>
+
+<h1>
+Safety That Looks
+<span>Beautiful.</span>
+</h1>
+
+<p>
+Premium Invisible Grill and Safety Net solutions
+for balconies, windows, terraces, children,
+pets and pigeon protection.
+</p>
+
+<div class="buttons">
+
+<a class="btn gold" href="tel:+917209000233">
+📞 GET FREE QUOTE
+</a>
+
+<a class="btn green"
+href="https://wa.me/917209000233"
+target="_blank">
+💬 WHATSAPP
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<div class="stats">
+
+<div class="stat">
+<strong>15+</strong>
+<small>Safety Solutions</small>
+</div>
+
+<div class="stat">
+<strong>Premium</strong>
+<small>Quality Materials</small>
+</div>
+
+<div class="stat">
+<strong>100%</strong>
+<small>Professional Finish</small>
+</div>
+
+<div class="stat">
+<strong>24/7</strong>
+<small>Contact Support</small>
+</div>
+
+</div>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="section" id="services">
+
+<div class="heading">
+
+<small>OUR SERVICES</small>
+
+<h2>Premium Safety Solutions</h2>
+
+<p>
+Invisible Grill and Safety Net solutions
+for modern homes and commercial spaces.
+</p>
+
+</div>
+
+<div class="services">
+
+<article class="card">
+<div class="cardimg">
+<img src="images/invisible-grill-balcony.jpg" alt="Invisible Grill Balcony">
+<span class="tag">INVISIBLE GRILL</span>
+</div>
+<div class="cardbody">
+<h3>Invisible Grill for Balcony</h3>
+<p>Premium stainless-steel invisible grill with a clean and open outside view.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/invisible-grill-window.jpg" alt="Invisible Grill Window">
+<span class="tag">WINDOW</span>
+</div>
+<div class="cardbody">
+<h3>Invisible Grill for Windows</h3>
+<p>Modern and elegant safety cable solution for residential windows.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/balcony-safety-net.jpg" alt="Balcony Safety Net">
+<span class="tag">BALCONY</span>
+</div>
+<div class="cardbody">
+<h3>Balcony Safety Net</h3>
+<p>Strong and neat safety net protection for modern balconies.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/pigeon-safety-net.jpg" alt="Pigeon Safety Net">
+<span class="tag">PIGEON NET</span>
+</div>
+<div class="cardbody">
+<h3>Pigeon Safety Net</h3>
+<p>Fine mesh protection designed to help keep pigeons away.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/invisible-grill-closeup.jpg" alt="Invisible Grill Installation">
+<span class="tag">INSTALLATION</span>
+</div>
+<div class="cardbody">
+<h3>Professional Installation</h3>
+<p>Clean fitting, secure fixing and premium finishing.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/safety-net-balcony-wide.jpg" alt="High Rise Balcony Safety">
+<span class="tag">HIGH RISE</span>
+</div>
+<div class="cardbody">
+<h3>High-Rise Balcony Safety</h3>
+<p>Professional protection for modern high-rise balconies.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/kids-pet-safety-net.jpg" alt="Kids Pet Safety Net">
+<span class="tag">FAMILY</span>
+</div>
+<div class="cardbody">
+<h3>Kids & Pet Safety Net</h3>
+<p>Additional safety protection for children and pets.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/professional-safety-net.jpg" alt="Professional Safety Net">
+<span class="tag">SAFETY NET</span>
+</div>
+<div class="cardbody">
+<h3>Professional Safety Net</h3>
+<p>Strong and professionally installed safety-net solutions.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/sports-safety-net.jpg" alt="Sports Safety Net">
+<span class="tag">SPORTS</span>
+</div>
+<div class="cardbody">
+<h3>Sports Safety Nets</h3>
+<p>Durable nets for cricket and sports practice areas.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/terrace-safety-net.jpg" alt="Terrace Safety Net">
+<span class="tag">TERRACE</span>
+</div>
+<div class="cardbody">
+<h3>Terrace Safety Nets</h3>
+<p>Safety solutions for terraces and open areas.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/invisible-grill-balcony.jpg" alt="Premium Balcony Grill">
+<span class="tag">PREMIUM</span>
+</div>
+<div class="cardbody">
+<h3>Premium Balcony Grill</h3>
+<p>Elegant cable design that keeps your balcony visually open.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/invisible-grill-window.jpg" alt="Window Safety Grill">
+<span class="tag">WINDOW</span>
+</div>
+<div class="cardbody">
+<h3>Window Safety Grill</h3>
+<p>Premium stainless-steel cable protection for windows.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/pigeon-safety-net.jpg" alt="Balcony Bird Protection">
+<span class="tag">BIRD PROTECTION</span>
+</div>
+<div class="cardbody">
+<h3>Balcony Bird Protection</h3>
+<p>Balcony netting solution for cleaner protected spaces.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/safety-net-balcony-wide.jpg" alt="Home Safety Net">
+<span class="tag">HOME</span>
+</div>
+<div class="cardbody">
+<h3>Home Safety Net</h3>
+<p>Professional balcony safety solution for modern homes.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+<article class="card">
+<div class="cardimg">
+<img src="images/kids-pet-safety-net.jpg" alt="Complete Safety Solutions">
+<span class="tag">COMPLETE</span>
+</div>
+<div class="cardbody">
+<h3>Complete Safety Solutions</h3>
+<p>Invisible grills and safety nets for balconies, windows and terraces.</p>
+<div class="cardactions">
+<a class="dark" href="tel:+917209000233">📞 Call</a>
+<a class="green" href="https://wa.me/917209000233">WhatsApp</a>
+</div>
+</div>
+</article>
+
+</div>
+</section>
+
+
+<!-- ================= FEATURE ================= -->
+
+<section class="section feature">
+
+<div class="featurebox">
+
+<div class="featureimg">
+<img src="images/invisible-grill-balcony.jpg" alt="Premium Invisible Grill">
+</div>
+
+<div class="featuretext">
+
+<h2>Premium Safety.<br>Clean Design.</h2>
+
+<p>
+We focus on strong materials, professional installation
+and a clean modern appearance for your home.
+</p>
+
+<div class="points">
+
+<div class="point"><b>✓</b> Premium quality materials</div>
+<div class="point"><b>✓</b> Professional installation</div>
+<div class="point"><b>✓</b> Modern elegant appearance</div>
+<div class="point"><b>✓</b> Balcony, window & terrace solutions</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section class="section" id="gallery">
+
+<div class="heading">
+
+<small>OUR WORK</small>
+
+<h2>Installation Gallery</h2>
+
+<p>Our Invisible Grill and Safety Net work.</p>
+
+</div>
+
+<div class="gallery">
+
+<div class="big">
+<img src="images/invisible-grill-balcony.jpg" alt="Invisible Grill Work">
+</div>
+
+<div>
+<img src="images/balcony-safety-net.jpg" alt="Balcony Safety Net">
+</div>
+
+<div>
+<img src="images/pigeon-safety-net.jpg" alt="Pigeon Safety Net">
+</div>
+
+<div>
+<img src="images/invisible-grill-window.jpg" alt="Window Safety Grill">
+</div>
+
+<div>
+<img src="images/kids-pet-safety-net.jpg" alt="Kids Safety Net">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="section reviewarea" id="reviews">
+
+<div class="heading">
+
+<small>CUSTOMER REVIEWS</small>
+
+<h2>Share Your Experience</h2>
+
+<p>
+Customer अपने काम का review और work photo submit कर सकता है।
+</p>
+
+</div>
+
+<div class="reviewbox">
+
+<label>Customer Name</label>
+
+<input
+id="customerName"
+type="text"
+placeholder="अपना नाम लिखें"
+>
+
+<label>Rating</label>
+
+<div class="stars" id="stars">
+
+<span onclick="setRating(1)">☆</span>
+<span onclick="setRating(2)">☆</span>
+<span onclick="setRating(3)">☆</span>
+<span onclick="setRating(4)">☆</span>
+<span onclick="setRating(5)">☆</span>
+
+</div>
+
+<label>Your Review</label>
+
+<textarea
+id="customerReview"
+rows="5"
+placeholder="अपना review लिखें..."
+></textarea>
+
+<label>Work Photo</label>
+
+<input
+id="customerPhoto"
+type="file"
+accept="image/*"
+>
+
+<button onclick="submitReview()">
+⭐ SUBMIT REVIEW
+</button>
+
+<p id="reviewMessage"></p>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="section">
+
+<div class="heading">
+
+<small>CONTACT US</small>
+
+<h2>Let's Talk About Your Project</h2>
+
+</div>
+
+<div class="details">
+
+<div class="detail">
+
+<b>📞 Phone</b>
+
+<span>
+<a href="tel:+917209000233">
+7209000233
+</a>
+</span>
+
+</div>
+
+<div class="detail">
+
+<b>📍 Address</b>
+
+<span>
+YOUR ADDRESS
+</span>
+
+</div>
+
+<div class="detail">
+
+<b>📧 Email</b>
+
+<span>
+YOUR EMAIL
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="contact" id="contact">
+
+<h2>Make Your Balcony Safer</h2>
+
+<p>
+Premium Invisible Grill & Safety Net Solutions.
+</p>
+
+<div class="buttons" style="justify-content:center;">
+
+<a class="btn gold" href="tel:+917209000233">
+📞 CALL NOW
+</a>
+
+<a class="btn green"
+href="https://wa.me/917209000233"
+target="_blank">
+💬 WHATSAPP
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footergrid">
+
+<div>
+
+<h3>MM SAFETY SERVICE</h3>
+
+<p>
+Premium Invisible Grill, Balcony Safety Net,
+Pigeon Net, Pet Safety and Terrace Safety solutions.
+</p>
+
+</div>
+
+<div>
+
+<h3>Quick Links</h3>
+
+<p><a href="#home">Home</a></p>
+<p><a href="#services">Services</a></p>
+<p><a href="#gallery">Gallery</a></p>
+<p><a href="#reviews">Reviews</a></p>
+
+</div>
+
+<div>
+
+<h3>Contact</h3>
+
+<p>
+📞 <a href="tel:+917209000233">7209000233</a>
+</p>
+
+<p>
+💬 <a href="https://wa.me/917209000233">WhatsApp</a>
+</p>
+
+<p>
+📧 YOUR EMAIL
+</p>
+
+<p>
+📍 YOUR ADDRESS
+</p>
+
+<p>
+🔎 <a href="https://search.google.com/search-console/about"
+target="_blank">
+Google Search Console
+</a>
+</p>
+
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 MM Safety Service. All Rights Reserved.
+</div>
+
+</footer>
+
+
+<a class="floatwa"
+href="https://wa.me/917209000233"
+target="_blank">
+💬
+</a>
+
+
+<script>
+
+let currentRating=0;
+
+function setRating(number){
+
+currentRating=number;
+
+const stars=document.querySelectorAll("#stars span");
+
+stars.forEach((star,index)=>{
+
+star.innerHTML=index<number?"★":"☆";
+
+});
+
+}
+
+
+function submitReview(){
+
+const name=
+document.getElementById("customerName").value.trim();
+
+const review=
+document.getElementById("customerReview").value.trim();
+
+const photo=
+document.getElementById("customerPhoto").files[0];
+
+if(!name){
+
+alert("कृपया अपना नाम लिखें।");
+return;
+
+}
+
+if(currentRating===0){
+
+alert("कृपया Star Rating दें।");
+return;
+
+}
+
+if(!review){
+
+alert("कृपया अपना Review लिखें।");
+return;
+
+}
+
+
+/*
+यह GitHub Pages demo storage है।
+यह review उसी browser/device में save होगा।
+Online central database के लिए backend चाहिए।
+*/
+
+const reviews=
+JSON.parse(localStorage.getItem("mmReviews")||"[]");
+
+
+reviews.push({
+
+name:name,
+
+rating:currentRating,
+
+review:review,
+
+photo:photo ? photo.name : "",
+
+date:new Date().toLocaleDateString(),
+
+status:"pending"
+
+});
+
+
+localStorage.setItem(
+"mmReviews",
+JSON.stringify(reviews)
+);
+
+
+document.getElementById("reviewMessage").innerText=
+"✅ आपका Review successfully submit हो गया। धन्यवाद!";
+
+
+document.getElementById("customerName").value="";
+document.getElementById("customerReview").value="";
+document.getElementById("customerPhoto").value="";
+
+currentRating=0;
+
+document.querySelectorAll("#stars span")
+.forEach(star=>star.innerHTML="☆");
+
+}
+
+</script>
+
+
+<script type="application/ld+json">
+
+{
+"@context":"https://schema.org",
+"@type":"LocalBusiness",
+"name":"MM Safety Service",
+"telephone":"+917209000233",
+"url":"https://aalamarshlan05-byte.github.io/safety-net-website/",
+"description":"Premium Invisible Grill and Safety Net services."
+}
+
+</script>
+
+</body>
+</html>
