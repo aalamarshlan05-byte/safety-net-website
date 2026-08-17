@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Safety Net - Customer Management</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6f9;color:#17212b}
+header{background:#087f5b;color:white;padding:18px;text-align:center}
+header h1{margin:0;font-size:24px}
+header p{margin:5px 0 0}
+.container{max-width:1000px;margin:auto;padding:15px}
+.card{background:white;border-radius:14px;padding:18px;margin-bottom:15px;box-shadow:0 3px 12px #0001}
+input,select,button{width:100%;padding:12px;margin:6px 0;border:1px solid #ccd5dd;border-radius:8px;font-size:15px}
+button{border:0;background:#087f5b;color:white;font-weight:bold;cursor:pointer}
+button:hover{opacity:.9}
+.search{font-size:16px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{text-align:center;padding:15px;background:#e9f7f2;border-radius:10px}
+.stat b{display:block;font-size:24px;color:#087f5b}
+.customer{border-left:5px solid #087f5b;margin-top:12px}
+.customer h3{margin:0 0 8px}
+.info{line-height:1.7}
+.actions{display:flex;gap:8px}
+.actions button{flex:1}
+.edit{background:#1971c2}
+.delete{background:#c92a2a}
+.whatsapp{background:#25d366}
+.status{font-weight:bold}
+@media(max-width:600px){
+.stats{grid-template-columns:1fr}
+.actions{flex-wrap:wrap}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🛡️ Safety Net</h1>
+<p>Customer Management System</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>Dashboard</h2>
+<div class="stats">
+<div class="stat">Total Customers<b id="total">0</b></div>
+<div class="stat">In Progress<b id="progress">0</b></div>
+<div class="stat">Completed<b id="complete">0</b></div>
+</div>
+</div>
+
+<div class="card">
+<h2>➕ Add Customer</h2>
+
+<input id="name" placeholder="Customer Name">
+<input id="mobile" placeholder="Mobile Number" type="tel">
+<input id="address" placeholder="Address">
+<input id="date" type="date">
+
+<select id="status">
+<option>Not Started</option>
+<option>In Progress</option>
+<option>Complete</option>
+</select>
+
+<button onclick="saveCustomer()">Save Customer</button>
+</div>
+
+<div class="card">
+<h2>🔎 Customer Records</h2>
+<input class="search" id="search" oninput="showCustomers()" placeholder="Name या Mobile से खोजें...">
+<div id="customers"></div>
+</div>
+
+</div>
+
+<script>
+let customers=JSON.parse(localStorage.getItem("safetyNetCustomers")||"[]");
+let editId=null;
+
+function saveCustomer(){
+ const name=document.getElementById("name").value.trim();
+ const mobile=document.getElementById("mobile").value.trim();
+ const address=document.getElementById("address").value.trim();
+ const date=document.getElementById("date").value;
+ const status=document.getElementById("status").value;
+
+ if(!name||!mobile){
+   alert("Customer Name और Mobile Number भरें");
+   return;
+ }
+
+ if(editId){
+   let c=customers.find(x=>x.id===editId);
+   c.name=name;c.mobile=mobile;c.address=address;
+   c.date=date;c.status=status;
+   editId=null;
+ }else{
+   customers.push({
+    id:Date.now(),
+    name,mobile,address,date,status
+   });
+ }
+
+ localStorage.setItem("safetyNetCustomers",JSON.stringify(customers));
+ clearForm();
+ showCustomers();
+ alert("Customer record save हो गया ✅");
+}
+
+function showCustomers(){
+ const box=document.getElementById("customers");
+ const q=document.getElementById("search").value.toLowerCase();
+
+ let list=customers.filter(c=>
+   c.name.toLowerCase().includes(q) ||
+   c.mobile.includes(q)
+ );
+
+ box.innerHTML="";
+
+ if(list.length===0){
+   box.innerHTML="<p>कोई customer record नहीं मिला।</p>";
+ }else{
+   list.forEach(c=>{
+    box.innerHTML+=`
+    <div class="card customer">
+      <h3>👤 ${escapeHtml(c.name)}</h3>
+
+      <div class="info">
+      📞 <b>${escapeHtml(c.mobile)}</b><br>
+      📍 ${escapeHtml(c.address||"Address नहीं दिया")}<br>
+      📅 ${c.date||"Date नहीं दी"}<br>
+      📌 <span class="status">${escapeHtml(c.status)}</span>
+      </div>
+
+      <div class="actions">
+       <button class="whatsapp" onclick="whatsapp('${c.mobile}')">
+       WhatsApp
+       </button>
+
+       <button class="edit" onclick="editCustomer(${c.id})">
+       Edit
+       </button>
+
+       <button class="delete" onclick="deleteCustomer(${c.id})">
+       Delete
+       </button>
+      </div>
+    </div>`;
+   });
+ }
+
+ updateStats();
+}
+
+function editCustomer(id){
+ const c=customers.find(x=>x.id===id);
+ if(!c)return;
+
+ document.getElementById("name").value=c.name;
+ document.getElementById("mobile").value=c.mobile;
+ document.getElementById("address").value=c.address;
+ document.getElementById("date").value=c.date;
+ document.getElementById("status").value=c.status;
+
+ editId=id;
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function deleteCustomer(id){
+ if(confirm("क्या आप यह customer record delete करना चाहते हैं?")){
+  customers=customers.filter(c=>c.id!==id);
+  localStorage.setItem("safetyNetCustomers",JSON.stringify(customers));
+  showCustomers();
+ }
+}
+
+function whatsapp(number){
+ let n=number.replace(/\D/g,"");
+ if(n.length===10)n="91"+n;
+ window.open("https://wa.me/"+n,"_blank");
+}
+
+function clearForm(){
+ document.getElementById("name").value="";
+ document.getElementById("mobile").value="";
+ document.getElementById("address").value="";
+ document.getElementById("date").value="";
+ document.getElementById("status").value="Not Started";
+}
+
+function updateStats(){
+ document.getElementById("total").textContent=customers.length;
+ document.getElementById("progress").textContent=
+ customers.filter(c=>c.status==="In Progress").length;
+ document.getElementById("complete").textContent=
+ customers.filter(c=>c.status==="Complete").length;
+}
+
+function escapeHtml(text){
+ return String(text).replace(/[&<>"']/g,m=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",
+ '"':"&quot;","'":"&#039;"
+ }[m]));
+}
+
+showCustomers();
+</script>
+
+</body>
+</html>
